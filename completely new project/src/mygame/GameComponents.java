@@ -235,12 +235,14 @@ public class GameComponents implements Runnable {
 			changeBallPosition(obj);
 			count++;
 			colTime = System.currentTimeMillis();
+			col=true;
 			
 			
 		}
 		if(timeNow -colTime >=500)
 		{
 			count=0;
+			col=false;
 		}
 				
 	}
@@ -273,25 +275,25 @@ public class GameComponents implements Runnable {
 	}
 	
 	private void checkPlayerInput() {
-		int max_x=can_width;
+		int max_y=Main.canvas.getHeight();
 		
 		
 		if(id==1)
 		{
-			if(Main.right==true)
+			if(Main.UP==true)
 			{
-				if(x<=max_x-width-10)
+				if(y>=10)
 				{
-					x+=10;
+					y-=10;
 				}
 			}
 				
-			if(Main.left==true)
+			if(Main.DOWN==true)
 			{
 	
-				if(x>=10)
+				if(y<=max_y-height-10)
 				{
-					x-=10;
+					y+=10;
 				}
 			}
 		}
@@ -299,21 +301,21 @@ public class GameComponents implements Runnable {
 		if(id==2)
 		{
 				
-			if(Main._right==true)
+			if(Main._UP==true)
 			{
 	
-				if(x<=max_x-width-10)
+				if(y>=10)
 				{
-					x+=10;
+					y-=10;
 				}
 			}
 				
-			if(Main._left==true)
+			if(Main._DOWN==true)
 			{
 				
-				if(x>=10)
+				if(y<=max_y-height-10)
 				{
-					x-=10;
+					y+=10;
 				}
 			}
 		}

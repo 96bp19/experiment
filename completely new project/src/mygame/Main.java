@@ -25,7 +25,7 @@ public class Main   implements Runnable,KeyListener{
 	
 	
 	
-	static boolean _left=false,_right=false,left=false,right=false;
+	static boolean _DOWN=false,_UP=false,DOWN=false,UP=false;
 	
 	//related to thread
 	static boolean isRunning =true;
@@ -136,18 +136,18 @@ public class Main   implements Runnable,KeyListener{
 	public void keyPressed(KeyEvent e) {
 		
 		
-			if(e.getKeyCode()==KeyEvent.VK_D)
-				right=true;
+			if(e.getKeyCode()==KeyEvent.VK_W)
+				UP=true;
 			
-			if(e.getKeyCode()==KeyEvent.VK_A)
-				left =true;
+			if(e.getKeyCode()==KeyEvent.VK_S)
+				DOWN =true;
 
 		
-			if(e.getKeyCode()==KeyEvent.VK_RIGHT)
-				_right=true;
+			if(e.getKeyCode()==KeyEvent.VK_UP)
+				_UP=true;
 			
-			if(e.getKeyCode()==KeyEvent.VK_LEFT)
-				_left=true;
+			if(e.getKeyCode()==KeyEvent.VK_DOWN)
+				_DOWN=true;
 			
 			if(e.getKeyCode()==KeyEvent.VK_I)
 				ball.y-=2;
@@ -186,17 +186,17 @@ public class Main   implements Runnable,KeyListener{
 		
 		
      	
-		if(e.getKeyCode()==KeyEvent.VK_D)
-				right=false;
+		if(e.getKeyCode()==KeyEvent.VK_W)
+				UP=false;
 			
-		if(e.getKeyCode()==KeyEvent.VK_A)				
-				left =false;
+		if(e.getKeyCode()==KeyEvent.VK_S)				
+				DOWN =false;
 		
-		if(e.getKeyCode()==KeyEvent.VK_RIGHT)
-	        	_right=false;
+		if(e.getKeyCode()==KeyEvent.VK_UP)
+	        	_UP=false;
 		
-	    if(e.getKeyCode()==KeyEvent.VK_LEFT)
-				_left=false;
+	    if(e.getKeyCode()==KeyEvent.VK_DOWN)
+				_DOWN=false;
 		
 	}
 
@@ -219,20 +219,21 @@ public class Main   implements Runnable,KeyListener{
 		 
 		obj.ball=new GameComponents();
 		obj.ball.initProperties(60,200,20,20,0,"icons\\green_ball.png");
-		obj.ball.initializeSpeed(3, 3);
+		obj.ball.initializeSpeed(4, 4);
 		obj.ball.start();
 		
 
 		obj.player_01 =new GameComponents();
-		obj.player_01.initProperties(60, 600, 80, 40,1, "icons\\player.png");
+		obj.player_01.initProperties(100, 600, 40, 80,1, "icons\\player.png");
 		obj.player_01.initializeSpeed(10, 0);
 		obj.player_01.start();
 		
 	
 		obj.player_02 =new GameComponents();
-		obj.player_02.initProperties(60, 100, 80, 40,2, "icons\\player.png");
+		obj.player_02.initProperties(1120, 100, 40, 80,2, "icons\\player.png");
 		obj.player_02.initializeSpeed(10, 0);
 		obj.player_02.start();
+		
 		
 
 		t.start();
